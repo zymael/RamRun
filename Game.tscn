@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://Level1 FarBG0000.png" type="Texture" id=1]
-[ext_resource path="res://ground2.png" type="Texture" id=2]
-[ext_resource path="res://platform.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Level1 FarBG0000.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/ground2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/platform.png" type="Texture" id=3]
 [ext_resource path="res://player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="GDScript" id=1]
@@ -38,26 +38,29 @@ scroll/ignore_camera_zoom = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
 
-motion/scale = Vector2( 0.25, 0.25 )
+motion/scale = Vector2( 0.1, 0.1 )
 motion/offset = Vector2( 0, 0 )
 motion/mirroring = Vector2( 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxLayer"]
 
+transform/pos = Vector2( -1.57422, 4.84576 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Foreground" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, 450 )
+editor/display_folded = true
+transform/pos = Vector2( 0.516602, 298.882 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Foreground"]
 
+visibility/visible = false
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1250, 400 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1255.55, 361.137 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -68,18 +71,21 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/StaticBody2D"]
 
-transform/pos = Vector2( 1250, 400 )
+visibility/visible = false
+transform/pos = Vector2( 1255.55, 361.137 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="Platform2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 600, 650 )
+editor/display_folded = true
+transform/pos = Vector2( 589.413, 511.518 )
 texture = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platform2"]
 
+editor/display_folded = true
 visibility/visible = false
 input/pickable = false
 shapes/0/shape = SubResource( 3 )
@@ -99,115 +105,8 @@ shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Platform3" type="Sprite" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 1050, 450 )
-texture = ExtResource( 3 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Platform3"]
-
-visibility/visible = false
-input/pickable = false
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.32037, 0.440109 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/StaticBody2D"]
-
-transform/pos = Vector2( 1.32037, 0.440109 )
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Platform5" type="Sprite" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 750, 350 )
-texture = ExtResource( 3 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Platform5"]
-
-visibility/visible = false
-input/pickable = false
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.32037, 0.440109 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5/StaticBody2D"]
-
-transform/pos = Vector2( 1.32037, 0.440109 )
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Platform6" type="Sprite" parent="."]
-
-transform/pos = Vector2( 500, 250 )
-texture = ExtResource( 3 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Platform6"]
-
-visibility/visible = false
-input/pickable = false
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.32037, 0.440109 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6/StaticBody2D"]
-
-transform/pos = Vector2( 1.32037, 0.440109 )
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
-
-[node name="Platform4" type="Sprite" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 850, 600 )
-texture = ExtResource( 3 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Platform4"]
-
-visibility/visible = false
-input/pickable = false
-shapes/0/shape = SubResource( 3 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.32037, 0.440109 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4/StaticBody2D"]
-
-transform/pos = Vector2( 1.32037, 0.440109 )
-shape = SubResource( 3 )
-trigger = false
-_update_shape_index = 0
-
 [node name="player" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 100, 750 )
+transform/pos = Vector2( 189.346, 564.904 )
 
 

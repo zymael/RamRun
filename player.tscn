@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://playerRun.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/playerRun.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,11 +12,6 @@ extents = Vector2( 31.1563, 41.6372 )
 
 custom_solver_bias = 0.0
 points = Vector2Array( -0.138023, 16.5036, -19.902, -24.8691, 19.3625, -24.6056 )
-
-[sub_resource type="ColorRamp" id=3]
-
-offsets = FloatArray( 0, 1 )
-colors = ColorArray( 1, 1, 1, 1, 0, 0, 0, 0.0442478 )
 
 [sub_resource type="Animation" id=4]
 
@@ -68,7 +63,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 length = 7.0
 loop = true
@@ -84,7 +79,7 @@ tracks/0/keys = {
 "values": [ 1, 1, 1, 1, 1, 1, 1, 1 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 
 length = 1.0
 loop = false
@@ -100,7 +95,7 @@ tracks/0/keys = {
 "values": [ 6, 7 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=9]
 
 length = 1.25
 loop = true
@@ -116,7 +111,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="SampleLibrary" id=15]
+[sub_resource type="SampleLibrary" id=10]
 
 samples/coin = {
 "db": 0.0,
@@ -172,38 +167,6 @@ texture = ExtResource( 2 )
 vframes = 14
 frame = 1
 
-[node name="smoke" type="Particles2D" parent="sprite"]
-
-visibility/self_opacity = 0.363636
-visibility/blend_mode = 1
-transform/pos = Vector2( 20.4464, 2.92708 )
-transform/rot = 83.4504
-config/amount = 4
-config/lifetime = 0.3
-config/emit_timeout = 0.3
-config/emitting = false
-config/process_mode = 1
-config/local_space = false
-config/explosiveness = 0.1
-params/direction = 0.0
-params/spread = 180.0
-params/linear_velocity = 20.0
-params/spin_velocity = 1.0
-params/orbit_velocity = 0.0
-params/gravity_direction = 0.0
-params/gravity_strength = 9.8
-params/radial_accel = 0.0
-params/tangential_accel = 0.0
-params/damping = 0.0
-params/initial_angle = 0.0
-params/initial_size = 2.0
-params/final_size = 2.0
-params/hue_variation = 0.0
-params/anim_speed_scale = 1.0
-params/anim_initial_pos = 0.0
-randomness/spin_velocity = 2.0
-color/color_ramp = SubResource( 3 )
-
 [node name="anim" type="AnimationPlayer" parent="."]
 
 playback/process_mode = 1
@@ -212,9 +175,9 @@ root/root = NodePath("..")
 anims/crouch = SubResource( 4 )
 "anims/double jump" = SubResource( 5 )
 anims/falling = SubResource( 6 )
-anims/idle = SubResource( 8 )
-anims/jumping = SubResource( 10 )
-anims/run = SubResource( 12 )
+anims/idle = SubResource( 7 )
+anims/jumping = SubResource( 8 )
+anims/run = SubResource( 9 )
 playback/active = true
 playback/speed = 2.0
 blend_times = [  ]
@@ -255,7 +218,7 @@ _update_shape_index = 0
 [node name="sound" type="SamplePlayer" parent="."]
 
 config/polyphony = 1
-config/samples = SubResource( 15 )
+config/samples = SubResource( 10 )
 default/volume_db = 0.0
 default/pitch_scale = 1.0
 default/pan = 0.0
