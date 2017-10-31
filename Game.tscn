@@ -50,17 +50,15 @@ centered = false
 
 [node name="Foreground" type="Sprite" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 0.516602, 298.882 )
+transform/pos = Vector2( 1.60931, 237.028 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Foreground"]
 
-visibility/visible = false
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1255.55, 361.137 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 1260.84, 382.214 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -71,8 +69,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground/StaticBody2D"]
 
-visibility/visible = false
-transform/pos = Vector2( 1255.55, 361.137 )
+transform/pos = Vector2( 1260.84, 382.214 )
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
@@ -80,7 +77,7 @@ _update_shape_index = 0
 [node name="Platform2" type="Sprite" parent="."]
 
 editor/display_folded = true
-transform/pos = Vector2( 589.413, 511.518 )
+transform/pos = Vector2( 584.754, 427.656 )
 texture = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platform2"]
@@ -107,6 +104,6 @@ _update_shape_index = 0
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 189.346, 564.904 )
+transform/pos = Vector2( 213.219, 565.044 )
 
 

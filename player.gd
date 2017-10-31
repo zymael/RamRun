@@ -122,7 +122,7 @@ func _integrate_forces(s):
 		if (lv.x < 0 and move_left):
 			new_siding_left = true
 		elif (lv.x > 0 and move_right):
-			new_siding_left = false
+				new_siding_left = false
 		if (jumping):
 			new_anim = "jumping"
 		elif (abs(lv.x) < 0.1):
