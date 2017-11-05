@@ -1,17 +1,13 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/playerRun.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=9]
 
 custom_solver_bias = 0.0
-extents = Vector2( 31.1563, 41.6372 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
-
-custom_solver_bias = 0.0
-points = Vector2Array( -0.138023, 16.5036, -19.902, -24.8691, 19.3625, -24.6056 )
+radius = 30.0
+height = 30.0
 
 [sub_resource type="Animation" id=3]
 
@@ -111,36 +107,12 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="SampleLibrary" id=9]
-
-samples/coin = {
-"db": 0.0,
-"pitch": 1.0,
-"priority": 0,
-"sample": null
-}
-samples/jump = {
-"db": 0.0,
-"pitch": 1.0,
-"priority": 0,
-"sample": null
-}
-samples/shoot = {
-"db": 0.0,
-"pitch": 1.0,
-"priority": 0,
-"sample": null
-}
-
 [node name="player" type="RigidBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 1.62924, 4.1429 )
+shapes/0/shape = SubResource( 9 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 2 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/1/trigger = false
 collision/layers = 1
 collision/mask = 1
 mode = 2
@@ -186,15 +158,14 @@ autoplay = ""
 [node name="camera" type="Camera2D" parent="."]
 
 z/z = 3
-offset = Vector2( 100, 0 )
 anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 1, 1 )
 limit/left = 0
 limit/top = 0
-limit/right = 10000000
-limit/bottom = 700
+limit/right = 100000
+limit/bottom = 100000
 drag_margin/h_enabled = true
 drag_margin/v_enabled = true
 smoothing/enable = false
@@ -204,43 +175,15 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="bullet_shoot" type="Position2D" parent="."]
-
-transform/pos = Vector2( 31.2428, 4.08784 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 1.62924, 4.1429 )
-shape = SubResource( 1 )
+shape = SubResource( 9 )
 trigger = false
 _update_shape_index = 0
 
-[node name="sound" type="SamplePlayer" parent="."]
-
-config/polyphony = 1
-config/samples = SubResource( 9 )
-default/volume_db = 0.0
-default/pitch_scale = 1.0
-default/pan = 0.0
-default/depth = 0.0
-default/height = 0.0
-default/filter/type = 0
-default/filter/cutoff = 0.0
-default/filter/resonance = 0.0
-default/filter/gain = 0.0
-default/reverb_room = 2
-default/reverb_send = 0.0
-default/chorus_send = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-
-build_mode = 0
-polygon = Vector2Array( -0.138023, 16.5036, -19.902, -24.8691, 19.3625, -24.6056 )
-shape_range = Vector2( 1, 1 )
-trigger = false
-
 [node name="ui" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 0
 offset = Vector2( 0, 0 )
 rotation = 0.0
